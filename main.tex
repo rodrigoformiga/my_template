@@ -1,0 +1,47 @@
+% 2020 RODRIGO FORMIGA - SENAI CIMATEC / SALVADOR-BA
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usecolortheme{beaver}
+\setbeamertemplate{caption}[numbered]
+\beamertemplatenavigationsymbolsempty
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,brazil]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{roboto}
+% -------------------------------------------------%
+%              Título 
+% -------------------------------------------------%
+\title{Kinamatic Modeling and Simulaation of a SCARA robot by using solid dynamics and verification by MATLAB/Simulink}
+\author{Mahdi Salman Alshamasi \\
+Florin Ionescu \\
+Riad Taha Al-Kasasbeh}
+\institute{Facuty of Engeneering Technology, Jordan
+}
+\date{\today}
+
+% -------------------------------------------------%
+
+
+\begin{document}
+% -------------------------------------------------%
+% Slide com o título
+% -------------------------------------------------%
+\setbeamertemplate{footline}{} \begin{frame}[t]\maketitle\end{frame}
+
+
+\input{tex/introdution.tex}
+\input{tex/development.tex}
+\input{tex/results.tex}
+\input{tex/conclusion.tex}
+\input{tex/acknowledgement.tex}
+\nocite{*}
+\begin{frame}{References}  
+\bibliographystyle{apaslike}
+\bibliography{reference.bib}
+\end{frame}
+
+\end{document}

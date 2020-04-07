@@ -1,0 +1,63 @@
+\section{Development}
+\frametitle{Development}
+\subsection{Kinematics}
+  \begin{frame}{Development}
+    \begin{itemize}
+      \item Robot Kinematics
+    \end{itemize}
+    \begin{table}
+      \centering
+      \begin{tabular}{|c|c|c|c|c|lllll}
+      \cline{1-5}
+      i & \theta_{i} & d_{i} & a_{i} & \alpha_{i} & & & \\ \cline{1-5}
+      $    1    $  & \theta_{1}      & 0 & L_{1} & 0 \\ 
+      $    2    $  & \theta_{2}              & 0 & L_{2} & 0 \\ 
+      $    3    $  & 0            & d_{3} & 0 & 0 \\
+      $    4    $  & \theta_{4}           & d_{4} & 0 & 0 \\ \cline{1-5}
+      \end{tabular}
+      \caption{D-H parameters of the robot}
+        
+    \end{table}
+  \end{frame}
+
+
+\subsection{Inverse Kinamatic}
+  \begin{frame}{Development}
+    \begin{itemize}
+      \item Inverse solution for position:
+      $$\theta_{1}= \tan^{-1}(\frac{s_{1}}{c_{1}}) = \tan^{-1} \frac{(L_{1}+L_{2}c_{2})\cdot \rho_{y} - L_{2}\cdot s_{2}\cdot p_{x}}
+      {(L_{1}+L_{2}c_{2})\cdot \rho_{x} + L_{2}\cdot s_{2}\cdot p_{y}}$$   
+      $$ $$
+      $$\theta_{2}= \tan^{-1}\frac{s_{2}}{c_{2}}$$
+      $$ $$
+      $$\theta_{3}= 0$$
+      $$ $$
+      $$\theta_{4}= \tan^{-1}\frac{-n_{x}\cdot \sin(\theta_{1}+\theta_{2}) + n_{x}\cdot \cos(\theta_{1}+\theta_{2})}
+      {n_{x}\cdot \cos(\theta_{1}+\theta_{2}) + n_{y}\cdot \sin(\theta_{1}+\theta_{2})}$$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Development}
+    \begin{itemize}
+      \item Inverse solution for velocity:    
+      $$\theta_{1}= \frac{\rho_{x}\cdot c_{12} + \rho_{y}\cdot s_{12}}{L_{1}\cdot s_{2}}$$
+      $$ $$
+      $$\theta_{2}= \frac{-\rho_{y}\cdot (L_{1}\cdot s_{1} + L_{2}\cdot s_{12}) - \rho_{x}\cdot (L_{1}\cdot c_{1} + L_{2}\cdot c_{12})}
+      {L_{1}\cdot L_{2}\cdot s_{2}}$$
+      $$ $$
+      $$d_{3}= -\rho_{z}$$
+      $$ $$
+      $$\theta_{4}= \frac{c_{12}\cdot n_{y} - s_{12}\cdot n_{x} - (n_{x}\cdot c_{12} + n_{y}\cdot s_{12})\cdot \theta_{12}}
+      {c_{4}}$$
+    \end{itemize}
+  \end{frame}
+
+\subsection{Torques}
+  \begin{frame}{Development}
+    \begin{itemize}
+      \item Torques exerted on the robot joint:
+      $$T_{1}= (b_{11}\cdot \theta_{1} - b_{12}\cdot \theta_{2} - b_{13}\cdot d_{3} - b_{14}\cdot \theta_{1}\cdot \theta_{2} + b_{15}\cdot \theta^{2}_{2})$$
+      $$T_{2}= (- b_{21}\cdot \theta_{1} + b_{22}\cdot \theta_{2} + b_{23}\cdot d_{3} + b_{24}\cdot \theta^{2}_{1})$$
+      $$T_{3}= (- b_{31}\cdot \theta_{1} + b_{32}\cdot \theta_{2} + b_{33}\cdot d_{3} - b_{34})$$
+    \end{itemize}
+  \end{frame}
